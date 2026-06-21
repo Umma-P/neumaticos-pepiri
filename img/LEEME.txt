@@ -1,0 +1,24 @@
+FOTOS — NEUMÁTICOS PEPIRI
+==========================
+Guardá tus fotos DENTRO de esta carpeta (img/) con estos nombres exactos
+(en minúscula, sin espacios ni tildes). Después, en index.html, buscá el
+número correspondiente (Ctrl+F → "IMAGEN 1", "IMAGEN 2", etc.) y vas a
+encontrar comentado el código exacto para pegar.
+
+  1. hero.jpg                  → Foto grande del hero (lo primero que se ve)
+  2. producto-cubiertas.jpg    → Tarjeta "Cubiertas para auto"
+  3. producto-llantas.jpg      → Tarjeta "Llantas deportivas"
+  4. producto-antirrobos.jpg   → Tarjeta "Antirrobos y tuercas"
+  5. producto-accesorios.jpg   → Tarjeta "Accesorios varios"
+  6. promo-instagram.jpg       → Banner que linkea a Instagram
+  7. promo-mercadolibre.jpg    → Banner que linkea a Mercado Libre
+  8. promo-local.jpg           → Banner que linkea a "Ubicación"
+  9. nosotros.jpg              → Foto del equipo o fachada (sección "Nosotros")
+
+RECOMENDACIONES:
+- Formato: .jpg o .webp (más livianos que .png para fotos).
+- Tamaño: no hace falta que sean gigantes. Con ~1200px de ancho alcanza
+  y de paso la página carga más rápido.
+- Si querés usar otro nombre de archivo, está bien — solo asegurate de
+  que el "src" de la etiqueta <img> en index.html coincida exactamente
+  con el nombre del archivo que guardaste acá.

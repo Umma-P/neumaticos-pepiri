@@ -1,0 +1,26 @@
+LOGOS DE MARCAS — NEUMÁTICOS PEPIRI
+=====================================
+Por ahora la cinta de marcas muestra el nombre de cada una en texto
+(no bajé logos oficiales de internet porque son propiedad de cada
+marca, no algo que yo pueda copiar).
+
+Si en algún momento conseguís el logo oficial de una marca (PNG con
+fondo transparente, lo podés pedir en la web oficial de la marca o
+en su "kit de prensa" / "media kit"), guardalo acá con estos nombres:
+
+  fate.png
+  pirelli.png
+  bridgestone.png
+  firestone.png
+  kumho.png
+  dunlop.png
+  boto.png
+  firemax.png
+
+Después, en index.html, buscá "LOGO" con Ctrl+F: vas a encontrar un
+comentario arriba de cada marca con el código exacto para pegar y que
+la imagen reemplace al texto automáticamente.
+
+Tip: usá imágenes con fondo transparente y de altura similar entre sí
+(por ejemplo, todas de unos 80-120px de alto) para que la cinta se vea
+prolija y pareja.

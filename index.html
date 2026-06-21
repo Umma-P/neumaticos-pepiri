@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<!--
+  NEUMÁTICOS PEPIRI — Landing page
+  Hecho con cariño para el Día del Padre 2026 💛
+
+  ESTRUCTURA DEL PROYECTO:
+  ├── index.html
+  ├── css/style.css
+  ├── js/main.js
+  └── img/
+  Mantené esta estructura de carpetas al subir el sitio a tu hosting.
+-->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neumáticos Pepiri — Gomería, Alineación y Balanceo</title>
+<meta name="description" content="Neumáticos Pepiri: venta de neumáticos, alineación y balanceo, vulcanizado y reparación, accesorios. Seguridad y confianza en cada km.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Kaushan+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" type="image/png" href="img/pepirilogo.png">
+<link rel="shortcut icon" type="image/png" href="img/pepirilogo.png">
+</head>
+<body>
+
+<!-- ICON SPRITE -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-wheel" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/>
+      <path d="M12 3v6M12 15v6M3 12h6M15 12h6M5.6 5.6l4.2 4.2M14.2 14.2l4.2 4.2M18.4 5.6l-4.2 4.2M9.8 14.2l-4.2 4.2"/>
+    </symbol>
+    <symbol id="i-align" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18"/>
+      <path d="M5 9.5l-2 2.5 2 2.5M19 9.5l2 2.5-2 2.5M9.5 5l2.5-2 2.5 2M9.5 19l2.5 2 2.5-2"/>
+    </symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24">
+      <path d="M14.7 6.3a4 4 0 1 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 1 0 5.4-5.4l-2.1 2.1-2.8-.7-.7-2.8z"/>
+    </symbol>
+    <symbol id="i-nut" viewBox="0 0 24 24">
+      <path d="M12 2.5l8 4.6v9.8L12 21.5l-8-4.6V7.1z"/><circle cx="12" cy="12" r="3.2"/>
+    </symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24">
+      <path d="M21 11.5a8.4 8.4 0 0 1-9.1 8.4c-1.1 0-2.1-.2-3-.6L3 21l1.7-4.5a8.3 8.3 0 0 1-1.2-4.4A8.4 8.4 0 0 1 12 3.6h.4a8.4 8.4 0 0 1 8.6 7.4z"/>
+    </symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24">
+      <path d="M3 8a2 2 0 0 1 2-2h2l1.2-2h7.6L17 6h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="3.4"/>
+    </symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24">
+      <path d="M20 13.5L13.5 20a1.5 1.5 0 0 1-2.1 0l-7.4-7.4a1.5 1.5 0 0 1 0-2.1L10.5 4H20z"/><circle cx="15" cy="9" r="1.4"/>
+    </symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24">
+      <path d="M12 21s7-7.6 7-12.4a7 7 0 1 0-14 0C5 13.4 12 21 12 21z"/><circle cx="12" cy="8.6" r="2.6"/>
+    </symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9"/><path d="M12 7.5v5l3.5 2"/>
+    </symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+  </defs>
+</svg>
+
+<!-- SCROLL GAUGE — "el cuentakilómetros de la página" -->
+<div class="gauge"><div class="gauge-fill" id="gaugeFill"></div></div>
+<div class="gauge-readout" id="gaugeReadout">0%</div>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="topbar-left">
+      <a href="https://api.whatsapp.com/send?phone=541152201397" target="_blank" rel="noopener"><svg class="icon"><use href="#i-chat"/></svg> +54 9 11 52201397</a>
+      <span>Lun a Vie · 9 a 18h | Sab · 9 a 13h</span>
+    </div>
+    <div class="topbar-right">
+      <a href="https://www.instagram.com/neumaticospepiri/" target="_blank" rel="noopener"><svg class="icon"><use href="#i-camera"/></svg></a>
+      <a href="https://www.mercadolibre.com.ar/pagina/neumaticospepiri" target="_blank" rel="noopener"><svg class="icon"><use href="#i-tag"/></svg></a>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site" id="siteHeader">
+  <div class="wrap">
+    <a href="#top" class="brand">
+      <img src="img/pepirilogo-blanco.png" alt="Neumáticos Pepiri" class="brand-mark">
+      <span class="brand-text">
+        <span class="brand-name">NEUMÁTICOS</span>
+        <span class="brand-script">Pepiri</span>
+      </span>
+    </a>
+    <nav class="main" id="mainNav">
+      <a href="#servicios">Servicios</a>
+      <a href="#productos">Productos</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#ubicacion">Ubicación</a>
+    </nav>
+    <div class="header-actions">
+      <a href="https://api.whatsapp.com/send?phone=541152201397" target="_blank" rel="noopener" class="btn btn-primary btn-cta-desktop magnetic">
+        <svg class="icon"><use href="#i-chat"/></svg> Escribinos
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+        <svg class="icon"><use href="#i-menu" id="menuIcon"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <video class="hero-video" autoplay muted loop playsinline poster="img/hero-poster.jpg" aria-hidden="true">
+    <source src="video/hero-bg.mp4" type="video/mp4">
+  </video>
+  <div class="hero-video-overlay"></div>
+  <svg class="hero-blueprint" viewBox="0 0 400 400" aria-hidden="true">
+    <circle class="ring" cx="200" cy="200" r="170"/>
+    <circle class="ring" cx="200" cy="200" r="130"/>
+    <circle class="ring-accent" cx="200" cy="200" r="90"/>
+    <circle class="ring" cx="200" cy="200" r="50"/>
+    <g stroke="#C9CDD2" stroke-width="1">
+      <line x1="200" y1="30" x2="200" y2="370"/>
+      <line x1="30" y1="200" x2="370" y2="200"/>
+    </g>
+    <path id="archTop" d="M 60 200 A 140 140 0 0 1 340 200" fill="none"/>
+    <text font-family="JetBrains Mono" font-size="11" letter-spacing="3" fill="#C9CDD2">
+      <textPath href="#archTop" startOffset="50%" text-anchor="middle">NEUMÁTICOS PEPIRI · SEGURIDAD Y CONFIANZA</textPath>
+    </text>
+  </svg>
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="eyebrow">Gomería · Alineación · Vulcanizado</span>
+      <h1>Seguridad y confianza<span class="accent">en cada km</span></h1>
+      <p>En Neumáticos Pepiri te ofrecemos los mejores productos y servicios para tu vehículo. Atendido por sus dueños, con stock permanente y la mejor variedad de neumáticos y llantas.</p>
+      <div class="hero-ctas">
+        <a href="https://api.whatsapp.com/send?phone=541152201397" target="_blank" rel="noopener" class="btn btn-primary magnetic">
+          <svg class="icon"><use href="#i-chat"/></svg> Consultanos por WhatsApp
+        </a>
+        <a href="https://www.mercadolibre.com.ar/pagina/neumaticospepiri" target="_blank" rel="noopener" class="btn btn-outline magnetic">
+          Ver catálogo en Mercado Libre <svg class="icon"><use href="#i-arrow"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img src="img/hero.jpg" alt="Local Neumáticos Pepiri" class="photo">
+    </div>
+  </div>
+
+  <!-- MARQUEE RIBBON -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <span class="marquee-item"><svg class="icon"><use href="#i-wheel"/></svg>Venta de neumáticos</span>
+      <span class="marquee-item"><svg class="icon"><use href="#i-align"/></svg>Alineación y balanceo</span>
+      <span class="marquee-item"><svg class="icon"><use href="#i-wrench"/></svg>Vulcanizado y reparación</span>
+      <span class="marquee-item"><svg class="icon"><use href="#i-nut"/></svg>Accesorios y más</span>
+      <span class="marquee-item"><svg class="icon"><use href="#i-wheel"/></svg>Venta de neumáticos</span>
+      <span class="marquee-item"><svg class="icon"><use href="#i-align"/></svg>Alineación y balanceo</span>
+      <span class="marquee-item"><svg class="icon"><use href="#i-wrench"/></svg>Vulcanizado y reparación</span>
+      <span class="marquee-item"><svg class="icon"><use href="#i-nut"/></svg>Accesorios y más</span>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust">
+  <div class="wrap">
+    <div class="trust-item"><svg class="icon"><use href="#i-wheel"/></svg><span>Atendidos por sus dueños</span></div>
+    <div class="trust-item"><svg class="icon"><use href="#i-nut"/></svg><span>Stock permanente</span></div>
+    <div class="trust-item"><svg class="icon"><use href="#i-tag"/></svg><span>También en Mercado Libre</span></div>
+    <div class="trust-item"><svg class="icon"><use href="#i-chat"/></svg><span>Consultas por WhatsApp</span></div>
+  </div>
+</div>
+
+<!-- MARCAS -->
+<section class="brands">
+  <div class="wrap">
+    <div class="section-head reveal" style="margin:0 auto 36px;text-align:center;max-width:none;">
+      <span class="eyebrow" style="justify-content:center;">Confían en nosotros</span>
+      <h2 style="font-size:clamp(22px,3vw,30px);">Marcas que vendemos</h2>
+    </div>
+  </div>
+  <div class="brands-marquee">
+    <div class="brands-track" id="brandsTrack">
+      <div class="brand-item"><img src="img/logos/fate.png" alt="Fate" class="brand-logo"></div>
+      <div class="brand-item"><img src="img/logos/pirelli.png" alt="Pirelli" class="brand-logo"></div>
+      <div class="brand-item"><img src="img/logos/bridgestone.png" alt="Bridgestone" class="brand-logo"></div>
+      <div class="brand-item"><img src="img/logos/firestone.png" alt="Firestone" class="brand-logo"></div>
+      <div class="brand-item"><img src="img/logos/kumho.png" alt="Kumho" class="brand-logo"></div>
+      <div class="brand-item"><img src="img/logos/dunlop.png" alt="Dunlop" class="brand-logo"></div>
+      <div class="brand-item"><img src="img/logos/boto.png" alt="Boto" class="brand-logo"></div>
+      <div class="brand-item"><img src="img/logos/firemax.png" alt="Firemax" class="brand-logo"></div>
+
+      <!-- Set duplicado para que el loop sea infinito y no se corte de golpe -->
+      <div class="brand-item" aria-hidden="true"><img src="img/logos/fate.png" alt="" class="brand-logo"></div>
+      <div class="brand-item" aria-hidden="true"><img src="img/logos/pirelli.png" alt="" class="brand-logo"></div>
+      <div class="brand-item" aria-hidden="true"><img src="img/logos/bridgestone.png" alt="" class="brand-logo"></div>
+      <div class="brand-item" aria-hidden="true"><img src="img/logos/firestone.png" alt="" class="brand-logo"></div>
+      <div class="brand-item" aria-hidden="true"><img src="img/logos/kumho.png" alt="" class="brand-logo"></div>
+      <div class="brand-item" aria-hidden="true"><img src="img/logos/dunlop.png" alt="" class="brand-logo"></div>
+      <div class="brand-item" aria-hidden="true"><img src="img/logos/boto.png" alt="" class="brand-logo"></div>
+      <div class="brand-item" aria-hidden="true"><img src="img/logos/firemax.png" alt="" class="brand-logo"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="servicios" id="servicios">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Nuestros servicios</span>
+      <h2>Todo lo que tu auto necesita</h2>
+      <p>Desde la venta de neumáticos hasta el mantenimiento completo de tu vehículo, en un solo lugar.</p>
+    </div>
+    <div class="servicios-grid">
+      <div class="servicio-card reveal">
+        <div class="icon-box"><svg class="icon"><use href="#i-wheel"/></svg></div>
+        <h3>Venta de neumáticos</h3>
+        <p>Amplia variedad de marcas y medidas, con stock permanente para tu vehículo.</p>
+      </div>
+      <div class="servicio-card reveal">
+        <div class="icon-box"><svg class="icon"><use href="#i-align"/></svg></div>
+        <h3>Alineación y balanceo</h3>
+        <p>Cuidamos el desgaste de tus cubiertas y la estabilidad de tu manejo.</p>
+      </div>
+      <div class="servicio-card reveal">
+        <div class="icon-box"><svg class="icon"><use href="#i-wrench"/></svg></div>
+        <h3>Vulcanizado y reparación</h3>
+        <p>Reparamos pinchaduras y daños para que vuelvas al camino sin problemas.</p>
+      </div>
+      <div class="servicio-card reveal">
+        <div class="icon-box"><svg class="icon"><use href="#i-nut"/></svg></div>
+        <h3>Accesorios y más</h3>
+        <p>Llantas, antirrobos, tuercas y todo lo que tu vehículo necesita.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section class="productos" id="productos">
+  <div class="wrap">
+    <div class="productos-head reveal">
+      <div class="section-head" style="margin-bottom:0;">
+        <span class="eyebrow">Destacados</span>
+        <h2>Lo que más se vende</h2>
+      </div>
+      <a href="https://www.mercadolibre.com.ar/pagina/neumaticospepiri" target="_blank" rel="noopener" class="btn btn-outline-dark magnetic">
+        Ver todo en Mercado Libre <svg class="icon"><use href="#i-arrow"/></svg>
+      </a>
+    </div>
+    <div class="productos-grid">
+      <div class="producto-card reveal">
+        <img src="img/KumhoEcowing.jpg" alt="Neumático Kumho Ecowing ES31 P 225/45R17 91 W" class="photo">
+        <div class="producto-info">
+          <h3>Neumático Kumho Ecowing ES31 P 225/45R17 91 W</h3>
+          <a href="https://www.mercadolibre.com.ar/neumatico-kumho-ecowing-es31-p-22545r17-91-w/p/MLA17373904?pdp_filters=item_id%3AMLA1435694151&matt_tool=89488245&ua=VwRbqOl0lWjDZVUeSRWsEzwVaz6hWnCwXnJK9WJ3qOzBY2Q#origin=share&sid=share&wid=MLA1435694151&action=copy" target="_blank" rel="noopener">Ver en Mercado Libre <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+      <div class="producto-card reveal">
+        <img src="img/firemax.jpg" alt="Neumático 225/45 R17 Firemax Fm601 Índice de velocidad W" class="photo">
+        <div class="producto-info">
+          <h3>Neumático 225/45 R17 Firemax Fm601 Índice de velocidad W</h3>
+          <a href="https://www.mercadolibre.com.ar/neumatico-22545-r17-firemax-fm601-indice-de-velocidad-w/p/MLA22930890?pdp_filters=item_id%3AMLA1562411519&matt_tool=89488245&ua=8eMsnxEBHOuTBrSu4r6wriJn86lloY6-tQTM3iF_K8k3H0o#origin=share&sid=share&wid=MLA1562411519&action=copy" target="_blank" rel="noopener">Ver en Mercado Libre <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+      <div class="producto-card reveal">
+        <img src="img/fordfocus.jpg" alt="Llanta Aleación Ford Focus 2 R16 (5x108) Gris" class="photo">
+        <div class="producto-info">
+          <h3>Llanta Aleacion Ford Focus 2 R16 (5x108) Gris</h3>
+          <a href="https://www.mercadolibre.com.ar/llanta-aleacion-ford-focus-2-r16-5x108-gris/p/MLA63914630?pdp_filters=item_id%3AMLA2753592720&matt_tool=89488245&ua=CphhfKKbgQ0MUdPh5vkyld62bPf0n_A7igTnAcJi8PVUmEU#origin=share&sid=share&wid=MLA2753592720&action=copy" target="_blank" rel="noopener">Ver en Mercado Libre <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+      <div class="producto-card reveal">
+        <img src="img/kit.jpg" alt="Kit x2 Neumáticos Boto 205 55 R16 Genesys 228 91W" class="photo">
+        <div class="producto-info">
+          <h3>Kit x2 Neumáticos Boto 205 55 R16 Genesys 228 91W</h3>
+          <a href="https://www.mercadolibre.com.ar/kit-x2-neumaticos-boto-205-55-r16-genesys-228-91w/p/MLA27921774?pdp_filters=item_id%3AMLA2472194038&matt_tool=89488245&ua=-NpAzfnZkc0H_I0-VSHCY1eCmOmBN2S6PV7e4py_7I3T2NQ#origin=share&sid=share&wid=MLA2472194038&action=copy" target="_blank" rel="noopener">Ver en Mercado Libre <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMOS -->
+<section class="promos">
+  <div class="wrap">
+    <div class="promos-grid">
+      <a class="promo reveal" href="https://www.instagram.com/neumaticospepiri/" target="_blank" rel="noopener">
+        <!-- IMAGEN 6: img/promo-instagram.jpg → <img src="img/promo-instagram.jpg" alt="Instagram Neumáticos Pepiri" class="photo"> -->
+<img src="img/unnamed.jpg" alt="Instagram Neumáticos Pepiri" class="photo">        <div class="promo-overlay"></div>
+        <div class="promo-content">
+          <span class="eyebrow">@neumaticospepiri</span>
+          <h3>Seguinos en Instagram</h3>
+          <span class="btn btn-outline">Ver perfil</span>
+        </div>
+      </a>
+      <a class="promo reveal" href="https://www.mercadolibre.com.ar/pagina/neumaticospepiri" target="_blank" rel="noopener">
+        <!-- IMAGEN 7: img/promo-mercadolibre.jpg → <img src="img/promo-mercadolibre.jpg" alt="Producto destacado Mercado Libre" class="photo"> -->
+<img src="img/promo-mercadolibre.jpg" alt="Producto destacado Mercado Libre" class="photo"><img src="img/unname.jpg" alt="Producto destacado Mercado Libre" class="photo"><img src="img/promo-mercadolibre.jpg" alt="Producto destacado Mercado Libre" class="photo">        <div class="promo-overlay"></div>
+        <div class="promo-content">
+          <span class="eyebrow">Tienda oficial</span>
+          <h3>Comprá en Mercado Libre</h3>
+          <span class="btn btn-outline">Ir a la tienda</span>
+        </div>
+      </a>
+      <a class="promo reveal" href="#ubicacion">
+        <!-- IMAGEN 8: img/promo-local.jpg → <img src="img/caartel.jpg" alt="Fachada del local" class="photo"> -->
+<img src="img/caartel.jpg" alt="Fachada del local" class="photo">        <div class="promo-overlay"></div>
+        <div class="promo-content">
+          <span class="eyebrow">Te esperamos</span>
+          <h3>Visitá nuestro local</h3>
+          <span class="btn btn-outline">Cómo llegar</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section class="nosotros" id="nosotros">
+  <div class="wrap">
+    <div class="nosotros-art reveal">
+      <img src="img/nosotros.jpg" alt="Equipo Neumáticos Pepiri" class="photo">
+    </div>
+    <div class="nosotros-copy reveal">
+      <span class="eyebrow">Nosotros</span>
+      <h2>Un negocio familiar, hecho con pasión</h2>
+      <p>Neumáticos Pepiri es un negocio atendido por sus propios dueños, donde cada cliente recibe atención personalizada y asesoramiento real para encontrar lo que su vehículo necesita.</p>
+      <p>Trabajamos con stock permanente de neumáticos y llantas, y también acompañamos a nuestros clientes a través de Mercado Libre, para que puedan elegir desde donde estén.</p>
+      <a href="https://api.whatsapp.com/send?phone=541152201397" target="_blank" rel="noopener" class="btn btn-primary magnetic">
+        <svg class="icon"><use href="#i-chat"/></svg> Hablemos por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- UBICACIÓN -->
+<section class="ubicacion" id="ubicacion">
+  <div class="wrap">
+    <div class="section-head reveal" style="grid-column:1/-1;">
+      <span class="eyebrow">Ubicación</span>
+      <h2>Visitanos en nuestro local</h2>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:-24px;">
+    <div class="map-ph ph reveal">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.1330779816235!2d-58.41026292327589!3d-34.6513419600165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccb71b903c6ff%3A0x5ea0dad37aa8ee40!2sNeum%C3%A1ticos%20Pepiri!5e0!3m2!1ses-419!2sar!4v1781914538439!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="contact-card reveal">
+      <h3>Datos de contacto</h3>
+      <div class="contact-row">
+        <svg class="icon"><use href="#i-pin"/></svg>
+        <div><strong>Dirección</strong>Pepirí 1181, C1437 Cdad. Autónoma de Buenos Aires</div>
+      </div>
+      <div class="contact-row">
+        <svg class="icon"><use href="#i-clock"/></svg>
+        <div><strong>Horarios</strong>Lunes a Viernes, 9 a 18h <br> Sabados, 9 a 13h</div>
+      </div>
+      <div class="contact-row">
+        <svg class="icon"><use href="#i-chat"/></svg>
+        <div><strong>WhatsApp</strong>011 5220-1397</div>
+      </div>
+      <a href="https://api.whatsapp.com/send?phone=541152201397" target="_blank" rel="noopener" class="btn btn-primary btn-block magnetic">
+        <svg class="icon"><use href="#i-chat"/></svg> Escribinos ahora
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-about">
+        <div class="brand">
+          <img src="img/pepirilogo-blanco.png" alt="Neumáticos Pepiri" class="brand-mark">
+          <span class="brand-text">
+            <span class="brand-name">NEUMÁTICOS</span>
+            <span class="brand-script">Pepiri</span>
+          </span>
+        </div>
+        <p>Seguridad y confianza en cada km. Venta de neumáticos, alineación y balanceo, vulcanizado, reparación y accesorios.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/neumaticospepiri/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon"><use href="#i-camera"/></svg></a>
+          <a href="https://api.whatsapp.com/send?phone=541152201397" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="icon"><use href="#i-chat"/></svg></a>
+          <a href="https://www.mercadolibre.com.ar/pagina/neumaticospepiri" target="_blank" rel="noopener" aria-label="Mercado Libre"><svg class="icon"><use href="#i-tag"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="#servicios">Venta de neumáticos</a></li>
+          <li><a href="#servicios">Alineación y balanceo</a></li>
+          <li><a href="#servicios">Vulcanizado y reparación</a></li>
+          <li><a href="#servicios">Accesorios y más</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Enlaces</h4>
+        <ul>
+          <li><a href="#top">Inicio</a></li>
+          <li><a href="#productos">Productos</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#ubicacion">Ubicación</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Seguinos</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/neumaticospepiri/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://api.whatsapp.com/send?phone=541152201397" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://www.mercadolibre.com.ar/pagina/neumaticospepiri" target="_blank" rel="noopener">Mercado Libre</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Neumáticos Pepiri. Todos los derechos reservados.</span>
+      <span>Hecho con cariño 🛞</span>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://api.whatsapp.com/send?phone=541152201397" target="_blank" rel="noopener" class="float-wa" aria-label="Escribinos por WhatsApp">
+  <svg class="icon"><use href="#i-chat"/></svg>
+</a>
+
+<!-- BACK TO TOP (anillo tipo cuentakilómetros) -->
+<button class="to-top" id="toTop" aria-label="Volver arriba">
+  <svg viewBox="0 0 50 50">
+    <circle class="ring-bg" cx="25" cy="25" r="22"/>
+    <circle class="ring-fg" id="toTopRing" cx="25" cy="25" r="22"/>
+  </svg>
+  <svg class="icon"><use href="#i-up"/></svg>
+</button>
+
+<script src="js/main.js"></script>
+</body>
+</html>
