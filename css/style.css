@@ -273,10 +273,10 @@ nav.main a:hover::after{width:100%;}
 .hero-video-overlay{
   position:absolute;inset:0;z-index:1;pointer-events:none;
   background:
-    linear-gradient(180deg, rgba(20,20,20,.55) 0%, rgba(20,20,20,.8) 100%),
+    linear-gradient(180deg, rgba(20,20,20,.35) 0%, rgba(20,20,20,.7) 100%),
     var(--ink);
   background-blend-mode:normal;
-  opacity:.86;
+  opacity:.45; /* Reducido para que el video sea bien visible */
 }
 .hero::before{
   content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
