@@ -1,7 +1,5 @@
 /* =========================================================
    NEUMÁTICOS PEPIRI — main.js
-   Interacciones: nav móvil, reveals, gauge de scroll,
-   header dinámico, botones magnéticos, spotlight, back-to-top
    ========================================================= */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -28,8 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }));
   }
 
-  /* ---------- Reveal on scroll (staggered) ---------- */
-  // Compute a stagger index per visual group so siblings cascade in.
+  /* ---------- Reveal on scroll ---------- */
   const groups = new Map();
   document.querySelectorAll('.reveal').forEach(el => {
     const parent = el.parentElement;
@@ -56,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
   }
 
-  /* ---------- Scroll gauge ("odómetro" de la página) ---------- */
+  /* ---------- Scroll gauge & Header & Back-to-top ---------- */
   const gaugeFill = document.getElementById('gaugeFill');
   const gaugeReadout = document.getElementById('gaugeReadout');
   const toTop = document.getElementById('toTop');
@@ -70,71 +67,54 @@ document.addEventListener('DOMContentLoaded', () => {
       window.requestAnimationFrame(() => {
         const doc = document.documentElement;
         const scrollTop = doc.scrollTop || document.body.scrollTop;
-        const scrollH = doc.scrollHeight - doc.clientHeight;
-        const pct = scrollH > 0 ? Math.min(100, Math.max(0, (scrollTop / scrollH) * 100)) : 0;
+        const scrollHeight = doc.scrollHeight - doc.clientHeight;
+        const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) : 0;
+        const pct = Math.round(progress * 100);
 
-        if (gaugeFill) gaugeFill.style.width = pct + '%';
+        if (gaugeFill) gaugeFill.style.width = `${pct}%`;
         if (gaugeReadout) {
-          gaugeReadout.textContent = Math.round(pct) + '%';
-          gaugeReadout.classList.toggle('show', scrollTop > 80);
+          gaugeReadout.textContent = `${pct}%`;
+          if (scrollTop > 100) gaugeReadout.classList.add('show');
+          else gaugeReadout.classList.remove('show');
         }
-        if (header) header.classList.toggle('scrolled', scrollTop > 40);
+
+        if (header) {
+          if (scrollTop > 50) header.classList.add('scrolled');
+          else header.classList.remove('scrolled');
+        }
+
         if (toTop) {
-          const visible = scrollTop > 480;
-          toTop.classList.toggle('show', visible);
+          if (scrollTop > 300) toTop.classList.add('show');
+          else toTop.classList.remove('show');
         }
+
         if (toTopRing) {
-          const offset = RING_CIRC - (pct / 100) * RING_CIRC;
+          const offset = RING_CIRC - (progress * RING_CIRC);
           toTopRing.style.strokeDashoffset = offset;
         }
+
         ticking = false;
       });
       ticking = true;
     }
   }
-  document.addEventListener('scroll', onScroll, { passive: true });
+
+  window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
   if (toTop) {
     toTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
 
-  /* ---------- Magnetic buttons ---------- */
-  if (!reduceMotion && window.matchMedia('(hover: hover)').matches) {
-    document.querySelectorAll('.magnetic').forEach(btn => {
-      let rect;
-      btn.addEventListener('mouseenter', () => { rect = btn.getBoundingClientRect(); });
-      btn.addEventListener('mousemove', (e) => {
-        if (!rect) rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        btn.style.transform = `translate(${x * 0.18}px, ${y * 0.32}px)`;
-      });
-      btn.addEventListener('mouseleave', () => {
-        btn.style.transform = 'translate(0,0)';
-      });
+  /* ---------- Cursor Spotlight ---------- */
+  if (!reduceMotion) {
+    window.addEventListener('mousemove', (e) => {
+      const x = `${(e.clientX / window.innerWidth) * 100}%`;
+      const y = `${(e.clientY / window.innerHeight) * 100}%`;
+      document.documentElement.style.setProperty('--mx', x);
+      document.documentElement.style.setProperty('--my', y);
     });
   }
-
-  /* ---------- Cursor spotlight on dark sections ---------- */
-  if (!reduceMotion && window.matchMedia('(hover: hover)').matches) {
-    const spotlightEls = document.querySelectorAll('.hero, .contact-card, footer.site');
-    spotlightEls.forEach(el => {
-      el.addEventListener('mousemove', (e) => {
-        const rect = el.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width) * 100;
-        const y = ((e.clientY - rect.top) / rect.height) * 100;
-        el.style.setProperty('--mx', x + '%');
-        el.style.setProperty('--my', y + '%');
-      });
-    });
-  }
-
-  /* ---------- Image placeholder shimmer stagger ---------- */
-  document.querySelectorAll('.ph').forEach((el, i) => {
-    el.style.animationDelay = (i % 6) * 0.35 + 's';
-  });
-
 });
