@@ -28,8 +28,8 @@
   --header-h:84px;
   --gauge-h:3px;
 
-  --mx:50%; /* cursor spotlight x (set by JS) */
-  --my:50%; /* cursor spotlight y (set by JS) */
+  --mx:50%;
+  --my:50%;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -74,7 +74,6 @@ p{color:var(--chrome-600);}
 .section-head{max-width:640px;margin-bottom:48px;}
 .section-head p{font-size:16px;}
 
-/* ---------- Buttons ---------- */
 .btn{
   position:relative;
   display:inline-flex;align-items:center;gap:10px;
@@ -102,7 +101,6 @@ p{color:var(--chrome-600);}
 .btn-block{width:100%;justify-content:center;}
 .magnetic{will-change:transform;}
 
-/* ---------- Placeholder image blocks ---------- */
 .ph{
   position:relative;
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
@@ -141,9 +139,6 @@ p{color:var(--chrome-600);}
 .ph-dark span{color:var(--chrome-300);}
 .ph-dark .icon{color:var(--orange);}
 
-/* ---------- Fotos reales (reemplazo de los placeholders .ph) ----------
-   Cuando reemplaces un <div class="ph">...</div> por una <img>, usá la
-   clase "photo" en su lugar. Ej: <img src="img/hero.jpg" class="photo"> */
 .photo{
   width:100%;height:100%;
   object-fit:cover;
@@ -155,7 +150,6 @@ p{color:var(--chrome-600);}
 .promo:hover .photo{transform:scale(1.06);}
 .map-photo{aspect-ratio:16/11;border-radius:6px;width:100%;height:100%;object-fit:cover;}
 
-/* ---------- Scroll gauge (signature element) ---------- */
 .gauge{
   position:sticky;top:0;z-index:51;
   height:var(--gauge-h);
@@ -185,7 +179,6 @@ p{color:var(--chrome-600);}
 }
 .gauge-readout.show{opacity:1;transform:translateY(0);}
 
-/* ---------- Top bar ---------- */
 .topbar{
   background:var(--ink-2);
   color:var(--chrome-300);
@@ -199,7 +192,6 @@ p{color:var(--chrome-600);}
 .topbar-right .icon{width:14px;height:14px;}
 @media (max-width:760px){ .topbar-left span:nth-child(2){display:none;} }
 
-/* ---------- Header ---------- */
 header.site{
   background:rgba(31,31,31,.92);
   backdrop-filter:blur(10px);
@@ -258,7 +250,6 @@ nav.main a:hover::after{width:100%;}
   .header-actions .btn-cta-desktop{display:none;}
 }
 
-/* ---------- Hero ---------- */
 .hero{
   background:var(--ink);
   position:relative;overflow:hidden;
@@ -276,7 +267,7 @@ nav.main a:hover::after{width:100%;}
     linear-gradient(180deg, rgba(20,20,20,.35) 0%, rgba(20,20,20,.7) 100%),
     var(--ink);
   background-blend-mode:normal;
-  opacity:.45; /* Reducido para que el video sea bien visible */
+  opacity:.45;
 }
 .hero::before{
   content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
@@ -328,7 +319,6 @@ nav.main a:hover::after{width:100%;}
   .hero-blueprint{display:none;}
 }
 
-/* ---------- Marquee ribbon ---------- */
 .marquee{
   background:var(--orange);
   overflow:hidden;white-space:nowrap;
@@ -352,7 +342,6 @@ nav.main a:hover::after{width:100%;}
 @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 @media (prefers-reduced-motion: reduce){ .marquee-track{animation:none;} }
 
-/* ---------- Trust strip ---------- */
 .trust{background:var(--chrome-50);border-bottom:1px solid var(--chrome-200);}
 .trust .wrap{
   display:grid;grid-template-columns:repeat(4,1fr);gap:0;
@@ -374,7 +363,6 @@ nav.main a:hover::after{width:100%;}
 }
 @media (max-width:540px){ .trust .wrap{grid-template-columns:1fr;} .trust-item{border-right:none;} }
 
-/* ---------- Marcas (carrusel de logos) ---------- */
 .brands{background:var(--white);padding-top:64px;padding-bottom:76px;}
 .brands .section-head{margin-bottom:40px;}
 .brands-marquee{
@@ -428,7 +416,6 @@ nav.main a:hover::after{width:100%;}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease), transform .7s var(--ease);}
 .reveal.in{opacity:1;transform:translateY(0);}
 
-/* ---------- Servicios ---------- */
 .servicios{background:var(--white);}
 .servicios-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
 .servicio-card{
@@ -457,7 +444,6 @@ nav.main a:hover::after{width:100%;}
 @media (max-width:880px){ .servicios-grid{grid-template-columns:repeat(2,1fr);} }
 @media (max-width:540px){ .servicios-grid{grid-template-columns:1fr;} }
 
-/* ---------- Productos ---------- */
 .productos{background:var(--chrome-50);}
 .productos-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;}
 .productos-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:8px;}
@@ -472,7 +458,6 @@ nav.main a:hover::after{width:100%;}
 @media (max-width:880px){ .productos-grid{grid-template-columns:repeat(2,1fr);} }
 @media (max-width:540px){ .productos-grid{grid-template-columns:1fr;} }
 
-/* ---------- Promo banners ---------- */
 .promos{background:var(--white);}
 .promos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
 .promo{
@@ -490,7 +475,6 @@ nav.main a:hover::after{width:100%;}
 .promo:hover .promo-content .btn-outline{transform:translateX(4px);}
 @media (max-width:880px){ .promos-grid{grid-template-columns:1fr;} }
 
-/* ---------- Nosotros ---------- */
 .nosotros{background:var(--chrome-50);}
 .nosotros .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center;}
 .nosotros-art{aspect-ratio:4/5;}
@@ -498,7 +482,6 @@ nav.main a:hover::after{width:100%;}
 .nosotros-copy p:last-of-type{margin-bottom:28px;}
 @media (max-width:880px){ .nosotros .wrap{grid-template-columns:1fr;} .nosotros-art{order:-1;aspect-ratio:16/10;} }
 
-/* ---------- Ubicación ---------- */
 .ubicacion{background:var(--white);}
 .ubicacion .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:stretch;}
 .map-ph{aspect-ratio:16/11;border-radius:6px;}
@@ -518,7 +501,6 @@ nav.main a:hover::after{width:100%;}
 .contact-card .btn{margin-top:auto;}
 @media (max-width:880px){ .ubicacion .wrap{grid-template-columns:1fr;} }
 
-/* ---------- Footer ---------- */
 footer.site{background:var(--ink-2);color:var(--chrome-300);padding-top:64px;position:relative;overflow:hidden;}
 footer.site::before{
   content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
@@ -545,7 +527,6 @@ footer.site>*{position:relative;z-index:1;}
 @media (max-width:880px){ .footer-top{grid-template-columns:1fr 1fr;} }
 @media (max-width:540px){ .footer-top{grid-template-columns:1fr;} }
 
-/* ---------- Floating WhatsApp ---------- */
 .float-wa{
   position:fixed;bottom:26px;right:26px;z-index:60;
   width:58px;height:58px;border-radius:50%;background:var(--orange);
@@ -558,7 +539,6 @@ footer.site>*{position:relative;z-index:1;}
 .float-wa .icon{width:27px;height:27px;}
 @keyframes pulse{0%,100%{box-shadow:0 10px 24px -8px rgba(0,0,0,.45),0 0 0 0 rgba(255,106,0,.4);}50%{box-shadow:0 10px 24px -8px rgba(0,0,0,.45),0 0 0 10px rgba(255,106,0,0);}}
 
-/* ---------- Back to top (odometer ring) ---------- */
 .to-top{
   position:fixed;bottom:26px;left:26px;z-index:60;
   width:50px;height:50px;border-radius:50%;
