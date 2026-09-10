@@ -289,7 +289,8 @@
     <div class="promos-grid">
       <a class="promo reveal" href="https://www.instagram.com/neumaticospepiri/" target="_blank" rel="noopener">
         <!-- IMAGEN 6: img/promo-instagram.jpg → <img src="img/promo-instagram.jpg" alt="Instagram Neumáticos Pepiri" class="photo"> -->
-<img src="img/unnamed.jpg" alt="Instagram Neumáticos Pepiri" class="photo">        <div class="promo-overlay"></div>
+        <img src="img/unnamed.jpg" alt="Instagram Neumáticos Pepiri" class="photo">
+        <div class="promo-overlay"></div>
         <div class="promo-content">
           <span class="eyebrow">@neumaticospepiri</span>
           <h3>Seguinos en Instagram</h3>
@@ -298,7 +299,8 @@
       </a>
       <a class="promo reveal" href="https://www.mercadolibre.com.ar/pagina/neumaticospepiri" target="_blank" rel="noopener">
         <!-- IMAGEN 7: img/promo-mercadolibre.jpg → <img src="img/promo-mercadolibre.jpg" alt="Producto destacado Mercado Libre" class="photo"> -->
-<img src="img/promo-mercadolibre.jpg" alt="Producto destacado Mercado Libre" class="photo"><img src="img/unname.jpg" alt="Producto destacado Mercado Libre" class="photo"><img src="img/promo-mercadolibre.jpg" alt="Producto destacado Mercado Libre" class="photo">        <div class="promo-overlay"></div>
+        <img src="img/promo-mercadolibre.jpg" alt="Producto destacado Mercado Libre" class="photo">
+        <div class="promo-overlay"></div>
         <div class="promo-content">
           <span class="eyebrow">Tienda oficial</span>
           <h3>Comprá en Mercado Libre</h3>
@@ -307,7 +309,8 @@
       </a>
       <a class="promo reveal" href="#ubicacion">
         <!-- IMAGEN 8: img/promo-local.jpg → <img src="img/caartel.jpg" alt="Fachada del local" class="photo"> -->
-<img src="img/caartel.jpg" alt="Fachada del local" class="photo">        <div class="promo-overlay"></div>
+        <img src="img/caartel.jpg" alt="Fachada del local" class="photo">
+        <div class="promo-overlay"></div>
         <div class="promo-content">
           <span class="eyebrow">Te esperamos</span>
           <h3>Visitá nuestro local</h3>
@@ -437,5 +440,54 @@
 </button>
 
 <script src="js/main.js"></script>
+
+<!-- ============================================================
+     PANEL DE DIAGNÓSTICO TEMPORAL — Neumáticos Pepiri
+     Esto NO es parte del diseño final. Te muestra en pantalla por
+     qué el video y el carrusel de marcas podrían no animarse:
+     1) si tu navegador tiene "reducir movimiento" activado
+     2) qué archivos de imagen/video no se encontraron (404)
+     Borrá este bloque <script> completo cuando termines de probar.
+     ============================================================ -->
+<script>
+(function(){
+  var box = document.createElement('div');
+  box.style.cssText = 'position:fixed;bottom:12px;right:12px;z-index:99999;max-width:340px;'
+    + 'background:#111;color:#eee;font:12px/1.5 monospace;padding:14px 16px;border-radius:8px;'
+    + 'box-shadow:0 8px 24px rgba(0,0,0,.5);border:1px solid #FF6A00;';
+  box.innerHTML = '<strong style="color:#FF6A00;">🔧 Diagnóstico (borrar luego)</strong><br><div id="diagLines"></div>';
+  document.body.appendChild(box);
+  var lines = document.getElementById('diagLines');
+
+  function addLine(text, ok){
+    var p = document.createElement('div');
+    p.style.marginTop = '6px';
+    p.style.color = ok ? '#7CFC7C' : '#FF7A7A';
+    p.textContent = (ok ? '✔ ' : '✘ ') + text;
+    lines.appendChild(p);
+  }
+
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  addLine('prefers-reduced-motion: ' + (reduced ? 'REDUCE (esto apaga video y carrusel)' : 'no-preference (animaciones OK)'), !reduced);
+
+  document.querySelectorAll('img').forEach(function(img){
+    img.addEventListener('error', function(){
+      addLine('Imagen no encontrada: ' + img.getAttribute('src'), false);
+    });
+  });
+
+  document.querySelectorAll('video source').forEach(function(src){
+    src.parentElement.addEventListener('error', function(){
+      addLine('Video no encontrado: ' + src.getAttribute('src'), false);
+    }, true);
+  });
+
+  var video = document.querySelector('.hero-video');
+  if (video) {
+    video.addEventListener('error', function(){ addLine('Error cargando el video del hero', false); });
+    video.addEventListener('loadeddata', function(){ addLine('Video del hero cargó OK', true); });
+  }
+})();
+</script>
 </body>
 </html>
