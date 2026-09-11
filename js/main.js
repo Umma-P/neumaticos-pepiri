@@ -117,4 +117,82 @@ document.addEventListener('DOMContentLoaded', () => {
       document.documentElement.style.setProperty('--my', y);
     });
   }
+
+  /* ---------- Galería de clientes — carrusel automático con dots ---------- */
+  const galeriaSlides = document.querySelectorAll('.galeria-slide');
+  const galeriaDots   = document.getElementById('galeriaDots');
+
+  if (galeriaSlides.length) {
+    let galeriaIndex = 0;
+    let galeriaTimer = null;
+
+    // Activar primera slide
+    galeriaSlides[0].classList.add('active');
+
+    // Crear dots
+    if (galeriaDots) {
+      galeriaSlides.forEach((_, i) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('aria-label', `Ir a la imagen ${i + 1}`);
+        if (i === 0) b.classList.add('active');
+        b.addEventListener('click', () => irASlide(i));
+        galeriaDots.appendChild(b);
+      });
+    }
+
+    function pintarDots() {
+      if (!galeriaDots) return;
+      galeriaDots.querySelectorAll('button').forEach((b, i) => {
+        b.classList.toggle('active', i === galeriaIndex);
+      });
+    }
+
+    function irASlide(i) {
+      galeriaSlides[galeriaIndex].classList.remove('active');
+      galeriaIndex = (i + galeriaSlides.length) % galeriaSlides.length;
+      galeriaSlides[galeriaIndex].classList.add('active');
+      pintarDots();
+      reiniciarTimer();
+    }
+
+    function siguiente() {
+      irASlide(galeriaIndex + 1);
+    }
+
+    function reiniciarTimer() {
+      if (galeriaTimer) clearInterval(galeriaTimer);
+      if (reduceMotion) return;
+      galeriaTimer = setInterval(siguiente, 4200);
+    }
+
+    reiniciarTimer();
+
+    // Pausa al pasar el mouse por encima
+    const carrusel = document.querySelector('.galeria-carousel');
+    if (carrusel) {
+      carrusel.addEventListener('mouseenter', () => {
+        if (galeriaTimer) clearInterval(galeriaTimer);
+      });
+      carrusel.addEventListener('mouseleave', reiniciarTimer);
+    }
+
+    // Soporte para swipe táctil en mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    if (carrusel) {
+      carrusel.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+      carrusel.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 40) {
+          if (diff > 0) irASlide(galeriaIndex + 1); // swipe izquierda → siguiente
+          else irASlide(galeriaIndex - 1);         // swipe derecha → anterior
+        }
+      }, { passive: true });
+    }
+  }
+
 });
