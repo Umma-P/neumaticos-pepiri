@@ -14,8 +14,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Neumáticos Pepiri — Gomería, Alineación y Balanceo</title>
-<meta name="description" content="Neumáticos Pepiri: venta de neumáticos, alineación y balanceo, vulcanizado y reparación, accesorios. Seguridad y confianza en cada km.">
+<title>Neumáticos Pepiri — Venta de Neumáticos, Llantas y Seguros</title>
+<meta name="description" content="Neumáticos Pepiri: empresa familiar con más de 40 años. Venta de neumáticos originales y deportivos, llantas, trabajamos con seguros, vulcanizado. Seguridad y confianza.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Kaushan+Script&display=swap" rel="stylesheet">
@@ -32,9 +32,12 @@
       <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/>
       <path d="M12 3v6M12 15v6M3 12h6M15 12h6M5.6 5.6l4.2 4.2M14.2 14.2l4.2 4.2M18.4 5.6l-4.2 4.2M9.8 14.2l-4.2 4.2"/>
     </symbol>
-    <symbol id="i-align" viewBox="0 0 24 24">
-      <circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18"/>
-      <path d="M5 9.5l-2 2.5 2 2.5M19 9.5l2 2.5-2 2.5M9.5 5l2.5-2 2.5 2M9.5 19l2.5 2 2.5-2"/>
+    <symbol id="i-shield" viewBox="0 0 24 24">
+      <path d="M12 1l8 4v6c0 7-8 10-8 10s-8-3-8-10V5z"/>
+    </symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24">
+      <rect x="2" y="8" width="15" height="11" rx="1"/><path d="M17 8v11h2a2 2 0 0 0 2-2v-9z"/>
+      <circle cx="5.5" cy="21" r="2"/><circle cx="18.5" cy="21" r="2"/>
     </symbol>
     <symbol id="i-wrench" viewBox="0 0 24 24">
       <path d="M14.7 6.3a4 4 0 1 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 1 0 5.4-5.4l-2.1 2.1-2.8-.7-.7-2.8z"/>
@@ -61,6 +64,9 @@
     <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
     <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+    </symbol>
   </defs>
 </svg>
 
@@ -73,6 +79,7 @@
   <div class="wrap">
     <div class="topbar-left">
       <a href="https://api.whatsapp.com/send?phone=541152201397" target="_blank" rel="noopener"><svg class="icon"><use href="#i-chat"/></svg> +54 9 11 52201397</a>
+      <a href="tel:+541145117584"><svg class="icon"><use href="#i-phone"/></svg> (011) 4511-5784</a>
       <span>Lun a Vie · 9 a 18h | Sab · 9 a 13h</span>
     </div>
     <div class="topbar-right">
@@ -93,9 +100,9 @@
       </span>
     </a>
     <nav class="main" id="mainNav">
-      <a href="#servicios">Servicios</a>
-      <a href="#productos">Productos</a>
       <a href="#nosotros">Nosotros</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#galeria">Galería</a>
       <a href="#ubicacion">Ubicación</a>
     </nav>
     <div class="header-actions">
@@ -131,9 +138,9 @@
   </svg>
   <div class="wrap">
     <div class="hero-copy">
-      <span class="eyebrow">Gomería · Alineación · Vulcanizado</span>
+      <span class="eyebrow">40+ años de experiencia</span>
       <h1>Seguridad y confianza<span class="accent">en cada km</span></h1>
-      <p>En Neumáticos Pepiri te ofrecemos los mejores productos y servicios para tu vehículo. Atendido por sus dueños, con stock permanente y la mejor variedad de neumáticos y llantas.</p>
+      <p>Empresa familiar especializada en venta de neumáticos originales y deportivos, llantas, trabajamos con seguros y brindamos soluciones completas para tu vehículo.</p>
       <div class="hero-ctas">
         <a href="https://api.whatsapp.com/send?phone=541152201397" target="_blank" rel="noopener" class="btn btn-primary magnetic">
           <svg class="icon"><use href="#i-chat"/></svg> Consultanos por WhatsApp
@@ -152,13 +159,13 @@
   <div class="marquee">
     <div class="marquee-track">
       <span class="marquee-item"><svg class="icon"><use href="#i-wheel"/></svg>Venta de neumáticos</span>
-      <span class="marquee-item"><svg class="icon"><use href="#i-align"/></svg>Alineación y balanceo</span>
-      <span class="marquee-item"><svg class="icon"><use href="#i-wrench"/></svg>Vulcanizado y reparación</span>
-      <span class="marquee-item"><svg class="icon"><use href="#i-nut"/></svg>Accesorios y más</span>
+      <span class="marquee-item"><svg class="icon"><use href="#i-shield"/></svg>Trabajamos con seguros</span>
+      <span class="marquee-item"><svg class="icon"><use href="#i-truck"/></svg>Llantas originales</span>
+      <span class="marquee-item"><svg class="icon"><use href="#i-nut"/></svg>Llantas deportivas</span>
       <span class="marquee-item"><svg class="icon"><use href="#i-wheel"/></svg>Venta de neumáticos</span>
-      <span class="marquee-item"><svg class="icon"><use href="#i-align"/></svg>Alineación y balanceo</span>
-      <span class="marquee-item"><svg class="icon"><use href="#i-wrench"/></svg>Vulcanizado y reparación</span>
-      <span class="marquee-item"><svg class="icon"><use href="#i-nut"/></svg>Accesorios y más</span>
+      <span class="marquee-item"><svg class="icon"><use href="#i-shield"/></svg>Trabajamos con seguros</span>
+      <span class="marquee-item"><svg class="icon"><use href="#i-truck"/></svg>Llantas originales</span>
+      <span class="marquee-item"><svg class="icon"><use href="#i-nut"/></svg>Llantas deportivas</span>
     </div>
   </div>
 </section>
@@ -166,12 +173,30 @@
 <!-- TRUST STRIP -->
 <div class="trust">
   <div class="wrap">
-    <div class="trust-item"><svg class="icon"><use href="#i-wheel"/></svg><span>Atendidos por sus dueños</span></div>
-    <div class="trust-item"><svg class="icon"><use href="#i-nut"/></svg><span>Stock permanente</span></div>
+    <div class="trust-item"><svg class="icon"><use href="#i-wheel"/></svg><span>Stock permanente</span></div>
+    <div class="trust-item"><svg class="icon"><use href="#i-shield"/></svg><span>Trabajamos con seguros</span></div>
     <div class="trust-item"><svg class="icon"><use href="#i-tag"/></svg><span>También en Mercado Libre</span></div>
     <div class="trust-item"><svg class="icon"><use href="#i-chat"/></svg><span>Consultas por WhatsApp</span></div>
   </div>
 </div>
+
+<!-- NOSOTROS — MOVIDO AL TOP -->
+<section class="nosotros" id="nosotros">
+  <div class="wrap">
+    <div class="nosotros-art reveal">
+      <img src="img/nosotros.jpg" alt="Equipo Neumáticos Pepiri" class="photo">
+    </div>
+    <div class="nosotros-copy reveal">
+      <span class="eyebrow">Nosotros</span>
+      <h2>Una empresa familiar con más de 40 años</h2>
+      <p>Neumáticos Pepiri es un negocio familiar con una trayectoria de más de 4 décadas en el rubro. Atendidos por sus propios dueños, donde cada cliente recibe atención personalizada y asesoramiento real para encontrar exactamente lo que su vehículo necesita.</p>
+      <p>Trabajamos con las mejores marcas de neumáticos, llantas originales y deportivas, siempre con stock permanente. También somos aliados de las principales compañías de seguros para brindarte soluciones integrales cuando lo necesites.</p>
+      <a href="https://api.whatsapp.com/send?phone=541152201397" target="_blank" rel="noopener" class="btn btn-primary magnetic">
+        <svg class="icon"><use href="#i-chat"/></svg> Hablemos por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
 
 <!-- MARCAS -->
 <section class="brands">
@@ -205,34 +230,69 @@
   </div>
 </section>
 
-<!-- SERVICIOS -->
+<!-- SERVICIOS — ACTUALIZADO -->
 <section class="servicios" id="servicios">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Nuestros servicios</span>
       <h2>Todo lo que tu auto necesita</h2>
-      <p>Desde la venta de neumáticos hasta el mantenimiento completo de tu vehículo, en un solo lugar.</p>
+      <p>Soluciones integrales en un solo lugar para el cuidado y mantenimiento de tu vehículo.</p>
     </div>
     <div class="servicios-grid">
       <div class="servicio-card reveal">
         <div class="icon-box"><svg class="icon"><use href="#i-wheel"/></svg></div>
         <h3>Venta de neumáticos</h3>
-        <p>Amplia variedad de marcas y medidas, con stock permanente para tu vehículo.</p>
+        <p>Amplia variedad de marcas, medidas y tipos. Originales y deportivos con stock permanente.</p>
       </div>
       <div class="servicio-card reveal">
-        <div class="icon-box"><svg class="icon"><use href="#i-align"/></svg></div>
-        <h3>Alineación y balanceo</h3>
-        <p>Cuidamos el desgaste de tus cubiertas y la estabilidad de tu manejo.</p>
+        <div class="icon-box"><svg class="icon"><use href="#i-truck"/></svg></div>
+        <h3>Llantas originales y deportivas</h3>
+        <p>Llantas de calidad para todos los vehículos. Desde las más elegantes hasta las más deportivas.</p>
+      </div>
+      <div class="servicio-card reveal">
+        <div class="icon-box"><svg class="icon"><use href="#i-shield"/></svg></div>
+        <h3>Trabajamos con seguros</h3>
+        <p>Somos aliados de las principales compañías aseguradoras. Consulta tu cobertura con nosotros.</p>
       </div>
       <div class="servicio-card reveal">
         <div class="icon-box"><svg class="icon"><use href="#i-wrench"/></svg></div>
         <h3>Vulcanizado y reparación</h3>
         <p>Reparamos pinchaduras y daños para que vuelvas al camino sin problemas.</p>
       </div>
-      <div class="servicio-card reveal">
-        <div class="icon-box"><svg class="icon"><use href="#i-nut"/></svg></div>
-        <h3>Accesorios y más</h3>
-        <p>Llantas, antirrobos, tuercas y todo lo que tu vehículo necesita.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA DE CLIENTES -->
+<section class="galeria" id="galeria">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Nuestros clientes</span>
+      <h2>Autos con estilo y seguridad</h2>
+      <p>Mirá cómo nuestros clientes disfrutaron de sus nuevas llantas y neumáticos.</p>
+    </div>
+  </div>
+  <div class="galeria-container">
+    <div class="galeria-carousel reveal">
+      <div class="galeria-slide">
+        <img src="img/cliente-1.jpg" alt="Cliente con llantas nuevas" class="galeria-photo">
+        <div class="galeria-legend">Llantas deportivas para máximo rendimiento</div>
+      </div>
+      <div class="galeria-slide">
+        <img src="img/cliente-2.jpg" alt="Cliente con llantas nuevas" class="galeria-photo">
+        <div class="galeria-legend">Seguridad en cada viaje</div>
+      </div>
+      <div class="galeria-slide">
+        <img src="img/cliente-3.jpg" alt="Cliente con llantas nuevas" class="galeria-photo">
+        <div class="galeria-legend">Transformá el look de tu auto</div>
+      </div>
+    </div>
+    <div class="galeria-content">
+      <div class="galeria-text reveal">
+        <p>Cada auto que pasa por Neumáticos Pepiri se lleva más que productos de calidad: se lleva la confianza de trabajar con una empresa familiar que conoce la importancia de detalles como seguridad, estilo y durabilidad.</p>
+        <a href="https://www.instagram.com/neumaticospepiri/" target="_blank" rel="noopener" class="btn btn-primary magnetic">
+          <svg class="icon"><use href="#i-camera"/></svg> Seguinos en Instagram
+        </a>
       </div>
     </div>
   </div>
@@ -318,24 +378,6 @@
   </div>
 </section>
 
-<!-- NOSOTROS -->
-<section class="nosotros" id="nosotros">
-  <div class="wrap">
-    <div class="nosotros-art reveal">
-      <img src="img/nosotros.jpg" alt="Equipo Neumáticos Pepiri" class="photo">
-    </div>
-    <div class="nosotros-copy reveal">
-      <span class="eyebrow">Nosotros</span>
-      <h2>Un negocio familiar, hecho con pasión</h2>
-      <p>Neumáticos Pepiri es un negocio atendido por sus propios dueños, donde cada cliente recibe atención personalizada y asesoramiento real para encontrar lo que su vehículo necesita.</p>
-      <p>Trabajamos con stock permanente de neumáticos y llantas, y también acompañamos a nuestros clientes a través de Mercado Libre, para que puedan elegir desde donde estén.</p>
-      <a href="https://api.whatsapp.com/send?phone=541152201397" target="_blank" rel="noopener" class="btn btn-primary magnetic">
-        <svg class="icon"><use href="#i-chat"/></svg> Hablemos por WhatsApp
-      </a>
-    </div>
-  </div>
-</section>
-
 <!-- UBICACIÓN -->
 <section class="ubicacion" id="ubicacion">
   <div class="wrap">
@@ -346,7 +388,7 @@
   </div>
   <div class="wrap" style="margin-top:-24px;">
     <div class="map-ph ph reveal">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.1330779816235!2d-58.41026292327589!3d-34.6513419600165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccb71b903c6f%3A0x5d8bb7f64c5e6f2a!2sPepir%C3%AD%201181%2C%20C1437%20CABA!5e0!3m2!1ses!2sar!4v1234567890" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.1330779816235!2d-58.41026292327589!3d-34.6513419600165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccb71b903c6f[...]" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <div class="contact-card reveal">
       <h3>Datos de contacto</h3>
@@ -361,6 +403,10 @@
       <div class="contact-row">
         <svg class="icon"><use href="#i-chat"/></svg>
         <div><strong>WhatsApp</strong>011 5220-1397</div>
+      </div>
+      <div class="contact-row">
+        <svg class="icon"><use href="#i-phone"/></svg>
+        <div><strong>Teléfono</strong>(011) 4511-5784</div>
       </div>
       <a href="https://api.whatsapp.com/send?phone=541152201397" target="_blank" rel="noopener" class="btn btn-primary btn-block magnetic">
         <svg class="icon"><use href="#i-chat"/></svg> Escribinos ahora
@@ -381,7 +427,7 @@
             <span class="brand-script">Pepiri</span>
           </span>
         </div>
-        <p>Seguridad y confianza en cada km. Venta de neumáticos, alineación y balanceo, vulcanizado, reparación y accesorios.</p>
+        <p>Empresa familiar con más de 40 años. Venta de neumáticos, llantas originales y deportivas, trabajamos con seguros, vulcanizado y reparación.</p>
         <div class="footer-social">
           <a href="https://www.instagram.com/neumaticospepiri/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon"><use href="#i-camera"/></svg></a>
           <a href="https://api.whatsapp.com/send?phone=541152201397" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="icon"><use href="#i-chat"/></svg></a>
@@ -392,17 +438,17 @@
         <h4>Servicios</h4>
         <ul>
           <li><a href="#servicios">Venta de neumáticos</a></li>
-          <li><a href="#servicios">Alineación y balanceo</a></li>
-          <li><a href="#servicios">Vulcanizado y reparación</a></li>
-          <li><a href="#servicios">Accesorios y más</a></li>
+          <li><a href="#servicios">Llantas originales</a></li>
+          <li><a href="#servicios">Llantas deportivas</a></li>
+          <li><a href="#servicios">Trabajamos con seguros</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Enlaces</h4>
         <ul>
           <li><a href="#top">Inicio</a></li>
-          <li><a href="#productos">Productos</a></li>
           <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#galeria">Galería</a></li>
           <li><a href="#ubicacion">Ubicación</a></li>
         </ul>
       </div>
@@ -412,6 +458,7 @@
           <li><a href="https://www.instagram.com/neumaticospepiri/" target="_blank" rel="noopener">Instagram</a></li>
           <li><a href="https://api.whatsapp.com/send?phone=541152201397" target="_blank" rel="noopener">WhatsApp</a></li>
           <li><a href="https://www.mercadolibre.com.ar/pagina/neumaticospepiri" target="_blank" rel="noopener">Mercado Libre</a></li>
+          <li><a href="tel:+541145117584">Teléfono</a></li>
         </ul>
       </div>
     </div>
