@@ -447,7 +447,13 @@ nav.main a:hover::after{width:100%;}
 /* GALERÍA DE CLIENTES */
 .galeria{background:var(--white);}
 .galeria-container{
-  display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:stretch;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:48px;
+  align-items:stretch;
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:0 24px;
 }
 .galeria-carousel{
   position:relative;height:380px;border-radius:6px;overflow:hidden;
