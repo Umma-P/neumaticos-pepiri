@@ -476,6 +476,23 @@ nav.main a:hover::after{width:100%;}
   .galeria-container{grid-template-columns:1fr;}
   .galeria-carousel{min-height:320px;}
 }
+/* Dots del carrusel de galería */
+.galeria-dots{
+  position:absolute;
+  bottom:14px;right:16px;z-index:3;
+  display:flex;gap:8px;
+}
+.galeria-dots button{
+  width:9px;height:9px;border-radius:50%;
+  border:1.5px solid var(--white);
+  background:transparent;cursor:pointer;
+  padding:0;transition:background .25s ease, transform .25s ease;
+}
+.galeria-dots button.active{
+  background:var(--orange);
+  border-color:var(--orange);
+  transform:scale(1.25);
+}
 
 .productos{background:var(--chrome-50);}
 .productos-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;}
